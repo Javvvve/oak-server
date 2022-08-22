@@ -1,4 +1,5 @@
-这是一个Deno项目 20220822
+#### oak-server
+### 这是一个Deno项目 20220822
 
 1. 初步搭建项目框架
 api 存放接口文件
@@ -15,6 +16,6 @@ README.md 说明文件
 Deno 安装 https://deno.land/#installation
 
 -- 运行指令
-deno run app.ts
+deno run --allow-net app.ts
 
-## 持续补充中...
+# 持续补充中...
