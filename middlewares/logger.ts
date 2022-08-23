@@ -2,7 +2,7 @@ interface ReqFn<T> {
 	(arg: T): T;
 }
 
-interface nextFn<> {
+interface NextFunc<> {
 	(arg?: string): void;
 }
 
@@ -11,27 +11,23 @@ interface Headers {
 }
 
 interface ContextReq {
-		headers: Headers
-    method: string
-		url: string
+	headers: Headers
+  method: string
+	url: string
 }
 
 interface ContextResp {
-    body: string | unknown
-		headers: Headers
+  body: string | unknown
+	headers: Headers
 }
 
 interface Context {
-    response: ContextResp
-		request: ContextReq
+  response: ContextResp
+	request: ContextReq
 }
 
-const Logger = async (ctx: Context, next: nextFn) => {
+export const Logger = () => async (ctx: Context, next: NextFunc) => {
 	await next();
 	const rt = ctx.response.headers.get("X-Response-Time");
   console.log(`${ctx.request.method} ${ctx.request.url} - ${rt}`);
-};
-
-export default {
-	Logger
 };
