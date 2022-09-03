@@ -1,13 +1,10 @@
 import { Router } from "https://deno.land/x/oak/mod.ts";
+import { pool } from '../utils/mysql2.ts'
 
 export const User = new Router();
 
-User.get('/user/info', (ctx) => {
-  const user = {
-    name: '李华',
-    age: 17,
-    gender: '女'
-  }
+User.get('/user/info', async (ctx) => {
+  const [user] = await pool.query('SELECT * FROM USER_INFO');
   ctx.response.body = { code: 0, data: user };
 });
 
