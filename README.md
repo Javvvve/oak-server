@@ -18,4 +18,11 @@ Deno 安装 https://deno.land/#installation
 -- 运行指令
 deno run --allow-net app.ts
 
+--  mysql 镜像运行指令
+docker container run -d -p 3306:3306 --name mysqlserver -v /Users/xxx/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 mysql
+
+-- redis 镜像运行指令 (可以用redis.conf)
+这里仅仅用指令配置了端口
+docker run -d -p 6379:6379 redis
+
 # 持续补充中...
